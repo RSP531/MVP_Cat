@@ -70,28 +70,24 @@ export default class HomeScreen extends React.Component {
   }
 
   buttonPress(){
-    //this.getNewCat()
     this.addToFavorites()
   }
 
   addToFavorites() {
     const temp = this.state.catArray[0]
-    console.log(temp)
+    //console.log(temp)
     const favArray = this.state.favoriteArray.concat(temp)
-    console.log(favArray)
+    //console.log(favArray)
     this.setState({
       favoriteArray: favArray
     })
-    // this.setState( state => {
-    //   const catArray = state.catArray.concat(responseJson[0].url)
-    //     return {
-    //       catArray,
-    //     }
-    // })
+    this.props.navigation.setParams({
+      favoritesArray: 'hi rob',
+    })
   }
 
   render() {
-    //console.log(this.state.catArray)
+    console.log(this.state.favoriteArray)
   return (
     <View style={styles.container}>
       <ScrollView
@@ -118,7 +114,7 @@ export default class HomeScreen extends React.Component {
             />
             <View>
               <Button 
-              title='Like'
+              title='GOOD CAT'
               onPress={()=>this.buttonPress()}
               />
             </View>
@@ -128,7 +124,7 @@ export default class HomeScreen extends React.Component {
           </View>
             <View>
               <Button 
-              title='Dislike'
+              title='bad cat'
               onPress={()=>this.buttonPress()}
               />
             </View>
