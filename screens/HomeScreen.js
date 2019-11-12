@@ -21,6 +21,7 @@ export default class HomeScreen extends React.Component {
       dataSource:null,
       catArray:[],
       favoriteArray:[],
+      value:0,
     }
     this.buttonPress = this.buttonPress.bind(this);
   }
@@ -70,6 +71,7 @@ export default class HomeScreen extends React.Component {
   }
 
   buttonPress(){
+    this.getNewCat()
     this.addToFavorites()
   }
 
@@ -110,7 +112,7 @@ export default class HomeScreen extends React.Component {
           <Text style={styles.getStartedText}>Good Cat or Bad Cat?</Text>
             <Image 
                 style={{width: 300, height: 300}}
-                source = {{uri:`${this.state.catArray[0]}`}}
+                source = {{uri:`${this.state.dataSource}`}}
             />
             <View>
               <Button 
