@@ -20,15 +20,14 @@ export default class HomeScreen extends React.Component {
       isLoading:true,
       dataSource:null,
       catArray:[],
-      favoriteArray: [],
+      favoriteArray:[],
     }
     this.buttonPress = this.buttonPress.bind(this);
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevState) {
     if(prevState.dataSource !== this.state.dataSource){
-      console.log('new')
+      //console.log('new')
     }
-
   }
   componentDidMount() {
     this.getNewCat()
@@ -54,7 +53,6 @@ export default class HomeScreen extends React.Component {
     .catch((error) => {
       console.log(error)
     });
-    
   }
 
   getNewCat () {
@@ -72,10 +70,11 @@ export default class HomeScreen extends React.Component {
   }
 
   buttonPress(){
-    this.getNewCat()
+    //this.getNewCat()
   }
 
   render() {
+    //console.log(this.state.catArray)
   return (
     <View style={styles.container}>
       <ScrollView
@@ -92,34 +91,30 @@ export default class HomeScreen extends React.Component {
           /> */}
         </View>
 
-        <View>
-          <Button 
-          title='Press me Rob'
-          onPress={()=>this.buttonPress()}
-          />
-        </View>
-
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Rob started by opening</Text>
+          <Text style={styles.getStartedText}>Good Cat or Bad Cat?</Text>
             <Image 
                 style={{width: 300, height: 300}}
                 source = {{uri:`${this.state.catArray[0]}`}}
             />
-            <Button 
-            title='Like'
-            onPress={()=>this.buttonPress()}
-            />
-            <Button 
-            title='Dislike'
-            onPress={()=>this.buttonPress()}
-            />
-            
+            <View>
+              <Button 
+              title='Like'
+              onPress={()=>this.buttonPress()}
+              />
+            </View>
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
+            <MonoText></MonoText>
           </View>
+            <View>
+              <Button 
+              title='Dislike'
+              onPress={()=>this.buttonPress()}
+              />
+            </View>
 
           <Text style={styles.getStartedText}>
             Change this text and your app will automatically reload.
@@ -166,8 +161,8 @@ function DevelopmentModeNotice() {
 
     return (
       <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
+        Development mode enabled: app is slower but
+        useful dev tools. {learnMoreButton}
       </Text>
     );
   } else {
