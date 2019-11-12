@@ -71,6 +71,23 @@ export default class HomeScreen extends React.Component {
 
   buttonPress(){
     //this.getNewCat()
+    this.addToFavorites()
+  }
+
+  addToFavorites() {
+    const temp = this.state.catArray[0]
+    console.log(temp)
+    const favArray = this.state.favoriteArray.concat(temp)
+    console.log(favArray)
+    this.setState({
+      favoriteArray: favArray
+    })
+    // this.setState( state => {
+    //   const catArray = state.catArray.concat(responseJson[0].url)
+    //     return {
+    //       catArray,
+    //     }
+    // })
   }
 
   render() {
